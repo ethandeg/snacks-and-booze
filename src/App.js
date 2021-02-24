@@ -15,11 +15,13 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [snacks, setSnacks] = useState([]);
   const [drinks, setDrinks] = useState([])
-  const addSnack = (snack) => {
+  const addSnack = async (snack) => {
     setSnacks([...snacks,snack])
+    await SnackOrBoozeApi.addSnackToDb(snack)
   }
-  const addDrink = (drink) => {
+  const addDrink = async (drink) => {
     setDrinks([...drinks, drink])
+    await SnackOrBoozeApi.addDrinkToDb(drink)
   }
 
   useEffect(() => {

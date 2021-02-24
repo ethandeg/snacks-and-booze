@@ -29,6 +29,7 @@ function Menu({ items, title }) {
                 <ListGroupItem>{item.name}</ListGroupItem>
               </Link>
             ))}
+            <Link to={`/${title.toLowerCase()}/new`}>Add new {title.toLowerCase()}</Link>
           </ListGroup>
         </CardBody>
       </Card>
