@@ -11,14 +11,22 @@ const BASE_API_URL = "http://localhost:5000";
 
 class SnackOrBoozeApi {
 
-  static async getSnacks() {
-    const result = await axios.get(`${BASE_API_URL}/snacks`);
-    return result.data;
+  static async getItems() {
+    const snacks = await axios.get(`${BASE_API_URL}/snacks`);
+    const drinks = await axios.get(`${BASE_API_URL}/drinks`)
+
+    return [snacks.data, drinks.data];
   }
 
-  static async getDrinks() {
-    const result = await axios.get(`${BASE_API_URL}/drinks`)
-    return result.data
+  static async addSnackToDb(snack) {
+    const res = await axios.post(`${BASE_API_URL}/snacks`, snack)
+    return res.data
+  }
+  static async addDrinkToDb(drink) {
+    console.log(drink)
+    const res = await axios.post(`${BASE_API_URL}/drinks`, drink)
+    console.log(res)
+    return res.data
   }
 
 }

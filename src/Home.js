@@ -1,7 +1,11 @@
-import React from "react";
+import React, {useContext} from "react";
 import { Card, CardBody, CardTitle } from "reactstrap";
+import SnackContext from "./SnackContext"
+import DrinkContext from "./DrinkContext"
 
-function Home({ snacks, drinks }) {
+function Home() {
+  const {snacks, addSnack} = useContext(SnackContext)
+  const {drinks, addDrink} = useContext(DrinkContext)
   return (
     <section className="col-md-8">
       <Card>

@@ -6,8 +6,8 @@ import { NavLink } from "react-router-dom";
 import { Navbar, Nav, NavItem } from "reactstrap";
 
 function NavBar() {
-  const snacks = useContext(SnackContext)
-  const drinks = useContext(DrinkContext)
+  const {snacks, addSnack} = useContext(SnackContext)
+  const {drinks, addDrink} = useContext(DrinkContext)
   return (
     <div>
       <Navbar expand="md">
